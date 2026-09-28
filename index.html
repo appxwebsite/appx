@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APPX — Apps Made Simple</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #07070b;
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #202027;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .hero {
+      padding: 70px 20px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, #5b21b6 0%, transparent 45%);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero span {
+      color: #8b5cf6;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .search {
+      width: 90%;
+      max-width: 550px;
+      padding: 16px 20px;
+      border-radius: 15px;
+      border: 1px solid #333;
+      background: #111118;
+      color: white;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .apps {
+      padding: 35px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .apps h2 {
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #111118;
+      border: 1px solid #24242d;
+      border-radius: 20px;
+      padding: 22px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #8b5cf6;
+    }
+
+    .icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 15px;
+      background: #8b5cf6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .download {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      background: #7c3aed;
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">APPX</div>
+  <div>🚀</div>
+</header>
+
+<section class="hero">
+  <h1>Discover <span>Amazing Apps</span></h1>
+  <p>Explore useful apps, tools and more — all in one place.</p>
+
+  <input
+    class="search"
+    type="text"
+    placeholder="🔍 Search apps..."
+    onkeyup="searchApps()"
+    id="searchBox"
+  >
+</section>
+
+<section class="apps">
+
+  <h2>🔥 Featured Apps</h2>
+
+  <div class="grid" id="appGrid">
+
+    <div class="card">
+      <div class="icon">🎵</div>
+      <h3>Music Player</h3>
+      <p>Simple and beautiful music player.</p>
+      <a href="#" class="download">Download</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">📝</div>
+      <h3>Notes</h3>
+      <p>Keep your important notes organized.</p>
+      <a href="#" class="download">Download</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎨</div>
+      <h3>Art Studio</h3>
+      <p>Create amazing digital artwork.</p>
+      <a href="#" class="download">Download</a>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 APPX — Made with ❤️
+</footer>
+
+<script>
+function searchApps() {
+  let input = document.getElementById("searchBox").value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
+
+  cards.forEach(card => {
+    let name = card.querySelector("h3").innerText.toLowerCase();
+
+    if (name.includes(input)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
